@@ -1,0 +1,66 @@
+*,
+*::before,
+*::after 
+  box-sizing: border-box
+
+*, html, body 
+  font-family: $font-family
+  -webkit-font-smoothing: antialiased
+  -moz-osx-font-smoothing: grayscale
+  -webkit-text-size-adjust: 100%
+  -ms-text-size-adjust: 100%
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video 
+    margin: 0
+    padding: 0
+    border: 0
+    font-size: 100%
+
+p,span,a,li,input,select,label,option,textarea,cite,button
+  font-size: $base-font-size
+
+span,p,h1,h2,h3,h4,h5,h6,li,a,input,select,label,option,textarea,cite
+  color: $very-dark-violet
+
+ul,li
+  list-style: none
+
+a
+  text-decoration: none
+    
+$padding-xxl: 8vw
+$padding-xl: 100px
+$padding-lg: 50px
+$padding-sm: 30px
+$padding-xs: 15px
+    
+.container
+  padding-left: $padding-xxl
+  padding-right: $padding-xxl
+  @media (max-width: $mq-xl) 
+    padding-left: $padding-xl
+    padding-right: $padding-xl
+
+  @media (max-width: $mq-lg) 
+    padding-left: $padding-lg
+    padding-right: $padding-lg
+
+  @media (max-width: $mq-sm) 
+    padding-left: $padding-sm
+    padding-right: $padding-sm
+    
+  @media (max-width: $mq-xs) 
+    padding-left: $padding-xs
+    padding-right: $padding-xs
