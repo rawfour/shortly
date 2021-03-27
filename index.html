@@ -37,31 +37,27 @@
         </div>
         <img src="./assets/images/illustration-working.svg" alt="człowiek przy komputerze" class="hero__image">
     </section>
-    <section class="main-section">
+    <section class="main-section" id="app">
         <div class="main-section__search-wrapper container">
             <form class="search-bar">
-                <input placeholder="Shorten a link here..." class="input" type="text" name="link" id="link">
-                <button class="button button--secondary">Shorten It!</button>
+                <input placeholder="Shorten a link here..." v-model.trim="url" class="input" type="text" name="link" id="link">
+                <button @click.prevent="shortLink" class="button button--secondary" :disabled="isLoading">
+
+                    <template v-if="isLoading"><loader></loader></template>
+                    <template v-else>Shorten It!</template>
+
+                </button>
             </form>
         </div>
         <div class="link-list container">
-            <div class="link-card">
-                <span class="link-card__old-link">https://www.example.com</span>
-                <a href="https://rel.ink/k4lKyk" class="link-card__new-link">https://rel.ink/k4lKyk</a>
-                <button class="button button--secondary">Copy</button>
-            </div>
-            <div class="link-card">
-                <span class="link-card__old-link">https://www.example.com</span>
-                <a href="https://rel.ink/k4lKyk" class="link-card__new-link">https://rel.ink/k4lKyk</a>
-                <button class="button button--secondary">Copy</button>
-            </div>
-            <div class="link-card">
-                <span class="link-card__old-link">https://www.example.com</span>
-                <a href="https://rel.ink/k4lKyk" class="link-card__new-link">https://rel.ink/k4lKyk</a>
-                <button class="button button--secondary">Copy</button>
-            </div>
+
+            <url-card v-for="item in shortUrl" :item="item" :key="item.code" ></url-card>
+
         </div>
     </section>
     
 </body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.5.13/vue.js"></script>
+<script src="./main.js"></script>
+
 </html>
