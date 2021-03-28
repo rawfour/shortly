@@ -6,6 +6,7 @@ https://rawfour.github.io/shortly/
 
 ## Description
 This is a simple app for shortening url addresses created with vue.js
+<br>
 Designed by Frontend Mentor - https://www.frontendmentor.io
 
 ## Built with
