@@ -14,14 +14,18 @@ Vue.component("url-card", {
   props: ["item"],
   data: function(){
     return {
-      isMounted: false
+      isMounted: false,
+      copied: false
     }
   },
   template: `
   <div :class="{ animated: isMounted }" class="link-card">
     <span class="link-card__old-link">{{ excerptText(item.original_link) }}</span>
     <a :href="item.full_short_link" target="_blank" class="link-card__new-link">{{ item.full_short_link }}</a>
-    <button class="button button--secondary">Copy</button>
+    <button class="button button--secondary" @click="copyLink(item.full_short_link)" :disabled="copied">
+      <template v-if="copied">Copied!</template>
+      <template v-else>Copy</template>
+    </button>
   </div>
   `,
   methods: {
@@ -31,6 +35,17 @@ Vue.component("url-card", {
         text = text.substring(0, 70) + "...";
       }
       return text;
+    },
+    copyLink: function(link) {
+
+      navigator.clipboard.writeText(link).then(() => {
+        this.copied = true;
+        setTimeout(() => {
+          this.copied = false;
+        },1500);
+      }, function(err) {
+        console.error('Async: Could not copy text: ', err);
+      });
     }
   },
   mounted: function(){
@@ -76,6 +91,7 @@ new Vue({
               });
 
 
-        }
+        },
+
     }
 })
