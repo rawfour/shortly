@@ -12,8 +12,13 @@ Vue.component("loader", {
 
 Vue.component("url-card", {
   props: ["item"],
+  data: function(){
+    return {
+      isMounted: false
+    }
+  },
   template: `
-  <div  class="link-card">
+  <div :class="{ animated: isMounted }" class="link-card">
     <span class="link-card__old-link">{{ excerptText(item.original_link) }}</span>
     <a :href="item.full_short_link" target="_blank" class="link-card__new-link">{{ item.full_short_link }}</a>
     <button class="button button--secondary">Copy</button>
@@ -27,8 +32,12 @@ Vue.component("url-card", {
       }
       return text;
     }
+  },
+  mounted: function(){
+    setTimeout(()=>{
+      this.isMounted = true;
+    }, 200)
   }
-  
 })
 
 new Vue({

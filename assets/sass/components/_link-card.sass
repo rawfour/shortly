@@ -6,6 +6,12 @@
     display: flex
     justify-content: flex-end
     align-items: center
+    opacity: 0
+    transform: translateY(50%)
+    transition: .6s
+    &.animated
+        opacity: 1
+        transform: translateY(0)
     &__old-link
         margin-right: auto
     &__new-link

@@ -280,7 +280,7 @@ a {
   bottom: 0;
   left: 0;
   border-radius: 10px 10px 0 0;
-  background-color: #bfbfbf;
+  background-color: #eff1f7;
   z-index: -1;
 }
 
@@ -300,7 +300,8 @@ a {
           align-items: stretch;
   padding-top: 20px;
   padding-bottom: 20px;
-  background-color: #bfbfbf;
+  background-color: #eff1f7;
+  min-height: 200px;
 }
 
 .link-card {
@@ -317,6 +318,17 @@ a {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  opacity: 0;
+  -webkit-transform: translateY(50%);
+          transform: translateY(50%);
+  -webkit-transition: .6s;
+  transition: .6s;
+}
+
+.link-card.animated {
+  opacity: 1;
+  -webkit-transform: translateY(0);
+          transform: translateY(0);
 }
 
 .link-card__old-link {
